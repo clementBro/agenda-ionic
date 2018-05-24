@@ -1,0 +1,41 @@
+<!--
+  Generated template for the ModifierPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>modifier</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form (ngSubmit)="modifierForm()">
+    <ion-item>
+      <ion-label>name</ion-label>
+      <ion-input type="text" [(ngModel)]="item.name" name="name"
+                 value={{item.name}}></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>capital</ion-label>
+
+      <ion-textarea [(ngModel)]="item.capital" name="capital"
+                    value={{item.capital}}></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label>population</ion-label>
+      <ion-textarea [(ngModel)]="item.population" name="population"
+                    value={{item.population}}></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label>country</ion-label>
+      <ion-textarea [(ngModel)]="item.country" name="country
+value={{item.country}}"></ion-textarea>
+    </ion-item>
+    <button ion-button type="submit" block>Modifier</button>
+  </form>
+</ion-content>
