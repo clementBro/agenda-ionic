@@ -29,7 +29,7 @@ export class DetailsPage {
   }
 
   ionViewDidLoad() {
-    let latLng = new google.maps.LatLng(45.762485, 4.836492);
+    let latLng = new google.maps.LatLng(45.745975, 4.841533);
 
     let mapOptions = {
       center: latLng,
@@ -38,7 +38,13 @@ export class DetailsPage {
     };
 
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+
+    var marker = new google.maps.Marker({
+      position: latLng,
+      map: this.map
+    });
   }
+
 
   supprimer(item) {
     console.log("suppression" + item.id);
