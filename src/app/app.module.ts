@@ -16,12 +16,12 @@ import {AjoutPage} from "../pages/ajout/ajout";
 import {ModifierPage} from "../pages/modifier/modifier";
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyDjEpUE_b2vQjeoCIw5eapsGTF3Ula0xP8",
-  authDomain: "agenda-44dae.firebaseapp.com",
-  databaseURL: "https://agenda-44dae.firebaseio.com",
-  projectId: "agenda-44dae",
-  storageBucket: "agenda-44dae.appspot.com",
-  messagingSenderId: "508577587501"
+  apiKey: "AIzaSyBENvU1LmW5QK2yBL8cb92n2oxo9EjXNvs",
+  authDomain: "barlyon-23ade.firebaseapp.com",
+  databaseURL: "https://barlyon-23ade.firebaseio.com",
+  projectId: "barlyon-23ade",
+  storageBucket: "barlyon-23ade.appspot.com",
+  messagingSenderId: "537768779702"
 };
 
 @NgModule({

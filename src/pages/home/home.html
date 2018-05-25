@@ -7,22 +7,12 @@
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
   <ion-list>
     <button ion-item *ngFor="let item of items | async" (click)="itemSelected(item)">
-      <p>Nom : {{ item.name }}</p>
-      <p>ID : {{ item.id }}</p>
-      {{ item.population }}
+      <p>Nom : {{ item.Nom }}</p>
+      <p>adresse : {{ item.adresse }}, {{item.post_cod}}</p>
     </button>
-
-
-
-
-
-</ion-list>
-
-  </p>
+  </ion-list>
   <ion-fab center middle>
     <button ion-fab mini (click)="ajouter(this)"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
