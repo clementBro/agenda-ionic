@@ -11,9 +11,20 @@
   <p>
   <ion-list>
     <button ion-item *ngFor="let item of items | async" (click)="itemSelected(item)">
-      <p>Nom : {{ item.name }}</p>
-      <p>ID : {{ item.id }}</p>
-      {{ item.population }}
+    <div class="row">
+        <div class="col-md-1">
+          <img class="icon_list" src="{{item.imageSource}}">
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-5">
+          <p>Nom : {{ item.Nom }}</p>
+          <p>Ville: {{ item.Ville }}</p>
+          <p>Adresse : {{ item.adresse }}</p>
+          <p>Tel : {{ item.Tel }}</p>
+          <p>Horaires : {{ item.Horaires }}</p>
+        </div>
+    </div>
+
     </button>
 
 
