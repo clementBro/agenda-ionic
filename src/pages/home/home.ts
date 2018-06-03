@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 import { AngularFirestoreCollection } from 'angularfire2/firestore';
 import {DetailsPage} from "../details/details";
 import {AjoutPage} from "../ajout/ajout";
-import { Observable } from "rxjs/Observable";
+import { Observable } from "rxjs";
 import * as firebase from 'firebase';
 interface Items {
     nom: string;
