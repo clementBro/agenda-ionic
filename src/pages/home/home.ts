@@ -32,29 +32,10 @@ export class HomePage {
           /*affichage de l'id du document*/
           console.log(a.payload.doc.id);
           console.log("test"+a.payload.doc.data().imageSource);
-
-<<<<<<< HEAD
           return data;
         });
      });
   }
-
-=======
- constructor(public navCtrl: NavController, db: AngularFirestore) {
- this.itemsCollection = db.collection<Items>('Tabac'); //ref()
-
- this.items=this.itemsCollection.snapshotChanges().map(actions => {
-    return actions.map(a => {
-      const data = a.payload.doc.data() as Items;
-      const id = a.payload.doc.id;
-      /*affichage de l'id du document*/
-      console.log(a.payload.doc.id);
-	   console.log("test"+a.payload.doc.data());
-      return { id, ...data };
-    })
-  })
- }
->>>>>>> 105d7827fdce475b21b24cd7ed1c109317086fa9
 
   itemSelected(item) {
     console.log("click" + item.get);

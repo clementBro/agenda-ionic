@@ -9,7 +9,7 @@
 <ion-content padding>
   <ion-list>
     <button ion-item *ngFor="let item of items | async" (click)="itemSelected(item)">
-<<<<<<< HEAD
+
     <div class="row">
         <div class="col-md-1">
           <img class="icon_list" src="{{item.imageSource}}">
@@ -23,11 +23,6 @@
           <p>Horaires : {{ item.Horaires }}</p>
         </div>
     </div>
-
-=======
-      <p>Nom : {{ item.Nom }}</p>
-      <p>adresse : {{ item.adresse }}, {{item.post_cod}}</p>
->>>>>>> 105d7827fdce475b21b24cd7ed1c109317086fa9
     </button>
   </ion-list>
   <ion-fab center middle>
