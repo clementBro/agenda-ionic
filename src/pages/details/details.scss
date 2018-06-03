@@ -1,3 +1,13 @@
-page-details {
 
+
+.ios, .md {
+  page-details {
+    .scroll {
+      height: 100%
+    }
+    #map {
+      width: 50%;
+      height: 50%;
+    }
+  }
 }
