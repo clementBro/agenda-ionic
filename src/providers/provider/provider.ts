@@ -22,17 +22,19 @@ export class Provider {
   requettesProvider:any=[];
 
   constructor(public db: AngularFirestore) {
-    this.itemsCollection = db.collection<Items>('cities'); //ref()
+    this.itemsCollection = db.collection<Items>('Tabac'); //ref()
     console.log('Hello RequettesProvider Provider');
   }
 
   ajouter_global(item){
     console.log("ajout de la page requette"+item.id)
-    this.db.collection("cities").add({
-      capital: item.capital,
-      country: item.country,
-      name:item.name,
-      population:item.population
+    this.db.collection("Tabac").add({
+      Nom : item.Nom,
+      Ville: item.Ville,
+      Adresse : item.adresse,
+      Tel : item.Tel,
+      Horaires : item.Horaires,
+      post_cod: item.post_cod
     })
       .then( (docRef) => {
         console.log("Document written with ID: ", docRef.id);
@@ -43,17 +45,19 @@ export class Provider {
   }
   supprimer_global(item){
     console.log("de la page requette"+item.id)
-    this.db.collection('cities').doc(item.id).delete();
+    this.db.collection('Tabac').doc(item.id).delete();
   }
 
   modifier_global(item){
     console.log("modificatoin de la page requette"+item.id)
     console.log("ajout de la page requette"+item.id)
-    this.db.collection("cities").doc(item.id).update({
-      capital: item.capital,
-      country: item.country,
-      name:item.name,
-      population:item.population
+    this.db.collection("Tabac").doc(item.id).update({
+      Nom : item.Nom,
+      Ville: item.Ville,
+      Adresse : item.adresse,
+      Tel : item.Tel,
+      Horaires : item.Horaires,
+      post_cod: item.post_cod
     })
       .then( (docRef) => {
         console.log("Document written with ID: ", docRef);

@@ -15,23 +15,31 @@
 <ion-content padding>
   <form (ngSubmit)="logForm()">
     <ion-item>
-      <ion-label>name</ion-label>
-      <ion-input type="text" [(ngModel)]="todo.name" name="capital"></ion-input>
+      <ion-label>Nom</ion-label>
+      <ion-input type="text" [(ngModel)]="todo.Nom" name="Nom"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>capital</ion-label>
-      <ion-textarea [(ngModel)]="todo.capital" name="capital"></ion-textarea>
+      <ion-label>Ville</ion-label>
+      <ion-textarea [(ngModel)]="todo.Ville" name="Ville"></ion-textarea>
     </ion-item>
 
     <ion-item>
-      <ion-label>population</ion-label>
+      <ion-label>Adresse</ion-label>
 
-      <ion-textarea [(ngModel)]="todo.population" name="population" default></ion-textarea>
+      <ion-textarea [(ngModel)]="todo.adresse" name="adresse" default></ion-textarea>
 
     </ion-item>
     <ion-item>
-      <ion-label>country</ion-label>
-      <ion-textarea [(ngModel)]="todo.country" name="country"></ion-textarea>
+      <ion-label>Tel</ion-label>
+      <ion-textarea [(ngModel)]="todo.Tel" name="Tel"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label>Horaires</ion-label>
+      <ion-textarea [(ngModel)]="todo.Horaires" name="horaires"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label>Code postal</ion-label>
+      <ion-textarea [(ngModel)]="todo.post_cod" name="post_cod"></ion-textarea>
     </ion-item>
     <button ion-button type="submit" block>Add Todo</button>
   </form>
