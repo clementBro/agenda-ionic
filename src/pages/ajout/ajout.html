@@ -41,7 +41,10 @@
       <ion-label>Code postal</ion-label>
       <ion-textarea [(ngModel)]="todo.post_cod" name="post_cod"></ion-textarea>
     </ion-item>
-    <button ion-button type="submit" block>Add Todo</button>
+    <button ion-button color="secondary" type="button" full round large (click)="selectPhoto()">
+      <ion-icon name="md-image"></ion-icon>
+    </button>
+    <button *ngIf="myPhoto != null" ion-button type="submit" block>Ajouter Tabac</button>
   </form>
 
 </ion-content>

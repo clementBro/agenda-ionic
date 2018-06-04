@@ -34,7 +34,9 @@ export class Provider {
       Adresse : item.adresse,
       Tel : item.Tel,
       Horaires : item.Horaires,
+      imageSource: item.imageSource.toString(),
       post_cod: item.post_cod
+
     })
       .then( (docRef) => {
         console.log("Document written with ID: ", docRef.id);
