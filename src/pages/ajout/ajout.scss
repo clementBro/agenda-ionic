@@ -5,16 +5,45 @@ page-ajout {
   margin-top: 40%;
   margin-left: 45%;
 }
+.imagePreview {
+  margin-top: 5%;
+  //margin-bottom: 5%;
+  width: 100%;
+}
 
 @media screen and (min-device-width: 700px) and (max-device-width: 840px) {
   .cordova-camera-select{
     margin-top: 125%;
     margin-left: 25%;
   }
+  .imagePreview {
+    margin-left: 33%;
+    margin-top: 5%;
+    width: 100%;
+    //margin-bottom: 5%;
+  }
+  .buttonPicture{
+    margin: 8%;
+  }
+  .deletePïcture{
+    margin-left: 5%;
+  }
 }
 @media screen and (min-device-width: 200px) and (max-device-width: 700px) {
   .cordova-camera-select{
     margin-top: 150%;
     margin-left: 25%;
+  }
+  .imagePreview {
+    margin-left: 33%;
+    margin-top: 5%;
+    width: 100%;
+    //margin-bottom: 5%;
+  }
+  .buttonPicture{
+    margin: 8%;
+  }
+  .deletePïcture{
+    margin-left: 7%;
   }
 }

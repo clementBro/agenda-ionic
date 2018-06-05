@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Provider} from "../../providers/provider/provider";
 import * as firebase from "firebase";
-import { Camera } from "ionic-native";
+import {Camera, CameraOptions} from "@ionic-native/camera";
 /**
  * Generated class for the AjoutPage page.
  *
@@ -20,25 +20,57 @@ export class AjoutPage {
   public myPhoto: any;
   public myPhotoURL: any;
   todo :any = {};
-
-  constructor(public navCtrl: NavController, public navParams: NavParams,public requettes_service:Provider) {
+  disabled = false;
+  public image : string;
+  constructor(public navCtrl: NavController, public navParams: NavParams,public requettes_service:Provider, public camera: Camera) {
     this.myPhotosRef = firebase.storage().ref('/Images/');
+
   }
 
   selectPhoto() {
-    Camera.getPicture({
-      sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-      destinationType: Camera.DestinationType.DATA_URL,
+    this.camera.getPicture({
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+      destinationType: this.camera.DestinationType.DATA_URL,
       quality: 100,
-      mediaType: Camera.MediaType.PICTURE,
-      encodingType: Camera.EncodingType.PNG,
+      mediaType: this.camera.MediaType.PICTURE,
+      encodingType: this.camera.EncodingType.PNG,
+      targetHeight: 150,
+      targetWidth: 150
     }).then(imageData => {
       this.myPhoto = imageData;
+      if(this.myPhoto != null){
+        this.image = "data:image/png;base64," + imageData;
+        this.disabled = true;
+      }
     }, error => {
       console.log("ERROR -> " + JSON.stringify(error));
     });
   }
 
+  takePhoto() {
+    this.camera.getPicture({
+      quality: 100, // picture quality
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.PNG,
+      mediaType: this.camera.MediaType.PICTURE,
+      targetHeight: 150,
+      targetWidth: 150
+
+    }).then(imageData => {
+      this.myPhoto = imageData;
+      if(this.myPhoto != null){
+        this.image = "data:image/png;base64," + imageData;
+        this.disabled = true;
+      }
+    }, error => {
+      console.log("ERROR -> " + JSON.stringify(error));
+    });
+  }
+  deletePicture(){
+    this.image = "";
+    this.myPhoto = null;
+    this.disabled = false;
+  }
    addToFirebase() {
     this.myPhotosRef.child(this.generateUUID()).child('myPhoto.png')
       .putString(this.myPhoto, 'base64', { contentType: 'image/png' })
