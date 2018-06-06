@@ -76,6 +76,26 @@
       <p>Entrez un code postal valide</p>
     </ion-item>
 
+    <ion-item [class.invalid]="!addForm.controls.lat.valid && addForm.controls.lat.touched"
+              [class.valid]="addForm.controls.lat.valid && addForm.controls.lat.touched">
+      <ion-label>Latitude</ion-label>
+      <ion-textarea formControlName="lat"></ion-textarea>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!addForm.controls.lat.valid &&
+     addForm.controls.lat.touched">
+      <p>Entrez une latitude valide</p>
+    </ion-item>
+
+    <ion-item [class.invalid]="!addForm.controls.long.valid && addForm.controls.long.touched"
+              [class.valid]="addForm.controls.long.valid && addForm.controls.long.touched">
+      <ion-label>Longitude</ion-label>
+      <ion-textarea formControlName="long"></ion-textarea>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!addForm.controls.long.valid &&
+     addForm.controls.long.touched">
+      <p>Entrez une longitude valide</p>
+    </ion-item>
+
     <button *ngIf="myPhoto != null && addForm.isValid && !disabled" ion-button type="submit" block>Ajouter Tabac</button>
   </form>
   <div class="imagePreview" *ngIf="image">

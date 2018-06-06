@@ -8,10 +8,13 @@ import {AjoutPage} from "../ajout/ajout";
 import { Observable } from "rxjs";
 import {AuthProvider} from "../../providers/auth/auth";
 interface Items {
+    id: string;
     nom: string;
     adresse: string;
     description: string;
     imageSource: string;
+    lat: number;
+    long: number;
    }
 @Component({
   selector: 'page-home',
@@ -30,8 +33,9 @@ export class HomePage {
           const data = a.payload.doc.data() as Items;
           const id = a.payload.doc.id;
           /*affichage de l'id du document*/
-          console.log(a.payload.doc.id);
+          console.log(id);
           console.log("test"+a.payload.doc.data().imageSource);
+          data.id = id;
           return data;
         });
      });

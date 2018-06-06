@@ -53,6 +53,14 @@ export class AjoutPage {
         '',
         Validators.compose([Validators.required, Validators.minLength(5)])
       ],
+      lat: [
+        '',
+        Validators.compose([Validators.required, Validators.minLength(1)])
+      ],
+      long: [
+        '',
+        Validators.compose([Validators.required, Validators.minLength(1)])
+      ],
     });
   }
 
@@ -143,6 +151,9 @@ export class AjoutPage {
       this.todo.tel = this.addForm.value.tel;
       this.todo.horaires = this.addForm.value.horaires;
       this.todo.post_cod = this.addForm.value.post_cod;
+      this.todo.lat = this.addForm.value.lat;
+      this.todo.long = this.addForm.value.long;
+
 
       try{
         console.log(this.todo);

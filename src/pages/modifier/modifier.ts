@@ -19,9 +19,7 @@ export class ModifierPage {
   item : string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public requettes_service: Provider) {
-    let item = this.navParams.get('item');
-    this.item = item;
-
+    this.item = this.navParams.get('item');
   }
 
   ionViewDidLoad() {

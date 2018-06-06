@@ -17,24 +17,43 @@
   <form (ngSubmit)="modifierForm()">
     <ion-item>
       <ion-label>name</ion-label>
-      <ion-input type="text" [(ngModel)]="item.name" name="name"
-                 value={{item.name}}></ion-input>
+      <ion-input type="text" [(ngModel)]="item.Nom" name="Nom
+                 value={{item.Nom}}"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>capital</ion-label>
-
-      <ion-textarea [(ngModel)]="item.capital" name="capital"
-                    value={{item.capital}}></ion-textarea>
+      <ion-label>Tel</ion-label>
+      <ion-textarea [(ngModel)]="item.Tel" name="Tel
+                    value={{item.Tel}}"></ion-textarea>
     </ion-item>
     <ion-item>
-      <ion-label>population</ion-label>
-      <ion-textarea [(ngModel)]="item.population" name="population"
-                    value={{item.population}}></ion-textarea>
+      <ion-label>Horaires</ion-label>
+      <ion-textarea [(ngModel)]="item.Horaires" name="Horaires
+                    value={{item.Horaires}}"></ion-textarea>
     </ion-item>
     <ion-item>
-      <ion-label>country</ion-label>
-      <ion-textarea [(ngModel)]="item.country" name="country
-value={{item.country}}"></ion-textarea>
+      <ion-label>Adresse</ion-label>
+      <ion-textarea [(ngModel)]="item.adresse" name="Adresse
+                    value={{item.adresse}}"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label>Ville</ion-label>
+      <ion-textarea [(ngModel)]="item.Ville" name="Ville
+                    value={{item.Ville}}"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label>Code postal</ion-label>
+      <ion-textarea [(ngModel)]="item.post_cod" name="codePostal
+                    value={{item.post_cod}}"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label>Latitude</ion-label>
+      <ion-textarea [(ngModel)]="item.lat" name="latitude
+                    value={{item.lat}}"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label>Longitude</ion-label>
+      <ion-textarea [(ngModel)]="item.long" name="longitude
+                    value={{item.long}}"></ion-textarea>
     </ion-item>
     <button ion-button type="submit" block>Modifier</button>
   </form>

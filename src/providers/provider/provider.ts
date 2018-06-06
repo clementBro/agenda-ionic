@@ -46,13 +46,14 @@ export class Provider {
       });
   }
   supprimer_global(item){
-    console.log("de la page requette"+item.id)
+    console.log("de la page requette"+item.id);
     this.db.collection('Tabac').doc(item.id).delete();
   }
 
   modifier_global(item){
-    console.log("modificatoin de la page requette"+item.id)
-    console.log("ajout de la page requette"+item.id)
+    console.log("provider : ", item);
+    console.log("modificatoin de la page requette"+item.id);
+    console.log("ajout de la page requette"+item.id);
     this.db.collection("Tabac").doc(item.id).update({
       Nom : item.Nom,
       Ville: item.Ville,

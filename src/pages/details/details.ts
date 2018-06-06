@@ -17,19 +17,18 @@ declare var google;
   templateUrl: 'details.html',
 })
 export class DetailsPage {
-  item: string;
+  item: any;
 
   @ViewChild('map') mapElement: ElementRef;
   map: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public requettes_service: Provider) {
-    let item = this.navParams.get('item');
-    console.log("ok page tranfere" + item.name);
-    this.item = item;
+    this.item = this.navParams.get('item');
+    console.log("ok page tranfere" + this.item);
   }
 
   ionViewDidLoad() {
-    let latLng = new google.maps.LatLng(45.745975, 4.841533);
+    let latLng = new google.maps.LatLng(this.item.lat, this.item.long);
 
     let mapOptions = {
       center: latLng,
