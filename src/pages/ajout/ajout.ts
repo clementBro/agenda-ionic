@@ -63,8 +63,8 @@ export class AjoutPage {
       quality: 100,
       mediaType: this.camera.MediaType.PICTURE,
       encodingType: this.camera.EncodingType.PNG,
-      targetHeight: 150,
-      targetWidth: 150
+      targetHeight: 100,
+      targetWidth: 100
     }).then(imageData => {
       this.myPhoto = imageData;
       if(this.myPhoto != null){
@@ -82,8 +82,8 @@ export class AjoutPage {
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.PNG,
       mediaType: this.camera.MediaType.PICTURE,
-      targetHeight: 150,
-      targetWidth: 150
+      targetHeight: 100,
+      targetWidth: 100
 
     }).then(imageData => {
       this.myPhoto = imageData;

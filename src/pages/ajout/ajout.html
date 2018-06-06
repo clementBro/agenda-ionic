@@ -76,7 +76,7 @@
       <p>Entrez un code postal valide</p>
     </ion-item>
 
-    <button *ngIf="myPhoto != null" ion-button type="submit" block>Ajouter Tabac</button>
+    <button *ngIf="myPhoto != null && addForm.isValid && !disabled" ion-button type="submit" block>Ajouter Tabac</button>
   </form>
   <div class="imagePreview" *ngIf="image">
     <img [src]="image" *ngIf="image" />
@@ -86,6 +86,6 @@
   </div>
 
 
-  <button class="buttonPicture" block (click)="selectPhoto()" [disabled]="!addForm.valid && !disabled">choisis une photo</button>
-  <button block (click)="takePhoto()" [disabled]="disabled">Prends une photo</button>
+  <button class="buttonPicture" block (click)="selectPhoto()" [disabled]="!disabled">choisis une photo</button>
+  <button block (click)="takePhoto()" [disabled]="!disabled">Prends une photo</button>
 </ion-content>
