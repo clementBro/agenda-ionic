@@ -35,7 +35,9 @@ export class Provider {
       Tel : item.tel,
       Horaires : item.horaires,
       imageSource: item.imageSource.toString(),
-      post_cod: item.post_cod
+      post_cod: item.post_cod,
+      lat: item.lat,
+      long: item.long
 
     })
       .then( (docRef) => {
