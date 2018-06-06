@@ -6,6 +6,7 @@ import { AngularFirestoreCollection } from 'angularfire2/firestore';
 import {DetailsPage} from "../details/details";
 import {AjoutPage} from "../ajout/ajout";
 import { Observable } from "rxjs";
+import {AuthProvider} from "../../providers/auth/auth";
 interface Items {
     nom: string;
     adresse: string;
@@ -21,7 +22,7 @@ export class HomePage {
 
   itemsCollection: AngularFirestoreCollection<Items>; //Firestore collection
   items: Observable<Items[]>; // read collection
-  constructor(public navCtrl: NavController, db: AngularFirestore) {
+  constructor(public navCtrl: NavController, db: AngularFirestore, public authProvider: AuthProvider) {
      this.itemsCollection = db.collection<Items>('Tabac'); //ref()
 
      this.items= this.itemsCollection.snapshotChanges().map(actions => {
@@ -43,5 +44,9 @@ export class HomePage {
   ajouter(num) {
     console.log("ajout" + num);
     this.navCtrl.push(AjoutPage, {num: num});
+  }
+  async logOut(): Promise<void> {
+    await this.authProvider.logoutUser();
+    this.navCtrl.setRoot('LoginPage');
   }
 }

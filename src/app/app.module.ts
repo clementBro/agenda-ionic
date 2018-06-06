@@ -9,11 +9,13 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { Camera } from "@ionic-native/camera";
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-
 import { Provider } from '../providers/provider/provider';
 import {DetailsPage} from "../pages/details/details";
 import {AjoutPage} from "../pages/ajout/ajout";
 import {ModifierPage} from "../pages/modifier/modifier";
+import { AuthProvider } from '../providers/auth/auth';
+import {AngularFireDatabaseModule} from "angularfire2/database";
+
 
 export const firebaseConfig = {
   apiKey: "AIzaSyBENvU1LmW5QK2yBL8cb92n2oxo9EjXNvs",
@@ -35,7 +37,8 @@ export const firebaseConfig = {
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-	AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
     AngularFirestoreModule,
     AngularFireAuthModule
   ],
@@ -52,7 +55,8 @@ export const firebaseConfig = {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Provider,
-    Camera
+    Camera,
+    AuthProvider
   ]
 })
 export class AppModule {}

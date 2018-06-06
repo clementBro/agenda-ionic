@@ -29,11 +29,11 @@ export class Provider {
   ajouter_global(item){
     console.log("ajout de la page requette"+item.id)
     this.db.collection("Tabac").add({
-      Nom : item.Nom,
-      Ville: item.Ville,
+      Nom : item.nom,
+      Ville: item.ville,
       Adresse : item.adresse,
-      Tel : item.Tel,
-      Horaires : item.Horaires,
+      Tel : item.tel,
+      Horaires : item.horaires,
       imageSource: item.imageSource.toString(),
       post_cod: item.post_cod
 

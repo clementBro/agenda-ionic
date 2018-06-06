@@ -7,39 +7,73 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>ajout</ion-title>
+    <ion-title>AJOUTER UN TABAC</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 <ion-content padding>
-  <form (ngSubmit)="logForm()">
-    <ion-item>
-      <ion-label>Nom</ion-label>
-      <ion-input type="text" [(ngModel)]="todo.Nom" name="Nom"></ion-input>
+  <form [formGroup]="addForm" (submit)="logForm()" noValidate>
+    <ion-item [class.invalid]="!addForm.controls.nom.valid && addForm.controls.nom.touched"
+              [class.valid]="addForm.controls.nom.valid && addForm.controls.nom.touched">
+      <ion-label stacked>Nom</ion-label>
+      <ion-input type="text" formControlName="nom"></ion-input>
     </ion-item>
-    <ion-item>
+    <ion-item class="error-message" *ngIf="!addForm.controls.nom.valid &&
+     addForm.controls.nom.touched">
+      <p>Entrez un nom valide</p>
+    </ion-item>
+
+    <ion-item [class.invalid]="!addForm.controls.ville.valid && addForm.controls.ville.touched"
+              [class.valid]="addForm.controls.ville.valid && addForm.controls.ville.touched">
       <ion-label>Ville</ion-label>
-      <ion-textarea [(ngModel)]="todo.Ville" name="Ville"></ion-textarea>
+      <ion-textarea formControlName="ville"></ion-textarea>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!addForm.controls.ville.valid &&
+     addForm.controls.ville.touched">
+      <p>Entrez une ville valide</p>
     </ion-item>
 
-    <ion-item>
+    <ion-item [class.invalid]="!addForm.controls.adresse.valid && addForm.controls.adresse.touched"
+              [class.valid]="addForm.controls.adresse.valid && addForm.controls.adresse.touched">
       <ion-label>Adresse</ion-label>
-
-      <ion-textarea [(ngModel)]="todo.adresse" name="adresse" default></ion-textarea>
-
+      <ion-textarea formControlName="adresse" default></ion-textarea>
     </ion-item>
-    <ion-item>
+    <ion-item class="error-message" *ngIf="!addForm.controls.adresse.valid &&
+     addForm.controls.adresse.touched">
+      <p>Entrez une adresse valide</p>
+    </ion-item>
+
+
+    <ion-item [class.invalid]="!addForm.controls.tel.valid && addForm.controls.tel.touched"
+              [class.valid]="addForm.controls.tel.valid && addForm.controls.tel.touched">
       <ion-label>Tel</ion-label>
-      <ion-textarea [(ngModel)]="todo.Tel" name="Tel"></ion-textarea>
+      <ion-textarea formControlName="tel"></ion-textarea>
     </ion-item>
-    <ion-item>
+    <ion-item class="error-message" *ngIf="!addForm.controls.tel.valid &&
+     addForm.controls.tel.touched">
+      <p>Entrez un numéro de téléphone valide avec au moins 10 chiffres</p>
+    </ion-item>
+
+    <ion-item [class.invalid]="!addForm.controls.horaires.valid && addForm.controls.horaires.touched"
+              [class.valid]="addForm.controls.horaires.valid && addForm.controls.horaires.touched">
       <ion-label>Horaires</ion-label>
-      <ion-textarea [(ngModel)]="todo.Horaires" name="horaires"></ion-textarea>
+      <ion-textarea formControlName="horaires"></ion-textarea>
     </ion-item>
-    <ion-item>
+    <ion-item class="error-message" *ngIf="!addForm.controls.horaires.valid &&
+     addForm.controls.horaires.touched">
+      <p>Entrez les horaires d'ouverture</p>
+    </ion-item>
+
+
+    <ion-item [class.invalid]="!addForm.controls.post_cod.valid && addForm.controls.post_cod.touched"
+              [class.valid]="addForm.controls.post_cod.valid && addForm.controls.post_cod.touched">
       <ion-label>Code postal</ion-label>
-      <ion-textarea [(ngModel)]="todo.post_cod" name="post_cod"></ion-textarea>
+      <ion-textarea formControlName="post_cod"></ion-textarea>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!addForm.controls.post_cod.valid &&
+     addForm.controls.post_cod.touched">
+      <p>Entrez un code postal valide</p>
     </ion-item>
 
     <button *ngIf="myPhoto != null" ion-button type="submit" block>Ajouter Tabac</button>
@@ -52,6 +86,6 @@
   </div>
 
 
-  <button class="buttonPicture" block (click)="selectPhoto()" [disabled]="disabled">choisis une photo</button>
+  <button class="buttonPicture" block (click)="selectPhoto()" [disabled]="!addForm.valid && !disabled">choisis une photo</button>
   <button block (click)="takePhoto()" [disabled]="disabled">Prends une photo</button>
 </ion-content>

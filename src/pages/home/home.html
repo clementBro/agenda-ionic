@@ -3,6 +3,11 @@
     <ion-title>
       IONIC PROJECT
     </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="logOut()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -17,7 +22,7 @@
         <div class="col-xs-4 listing">
           <p>Nom : {{ item.Nom }}</p>
           <p>Ville: {{ item.Ville }}</p>
-          <p>Adresse : {{ item.adresse }}</p>
+          <p>Adresse : {{ item.Adresse }}</p>
           <p>Tel : {{ item.Tel }}</p>
           <p>Horaires : {{ item.Horaires }}</p>
         </div>
