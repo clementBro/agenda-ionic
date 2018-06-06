@@ -76,7 +76,7 @@
       <p>Entrez un code postal valide</p>
     </ion-item>
 
-    <button *ngIf="myPhoto != null && addForm.isValid" ion-button type="submit" block>Ajouter Tabac</button>
+    <button *ngIf="myPhoto != null && !addForm.isValid" ion-button type="submit" block>Ajouter Tabac</button>
   </form>
   <div class="imagePreview" *ngIf="image">
     <img [src]="image" *ngIf="image" />
