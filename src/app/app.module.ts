@@ -15,6 +15,7 @@ import {AjoutPage} from "../pages/ajout/ajout";
 import {ModifierPage} from "../pages/modifier/modifier";
 import { AuthProvider } from '../providers/auth/auth';
 import {AngularFireDatabaseModule} from "angularfire2/database";
+import {HttpModule} from "@angular/http";
 
 
 export const firebaseConfig = {
@@ -40,6 +41,7 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFirestoreModule,
+    HttpModule,
     AngularFireAuthModule
   ],
   bootstrap: [IonicApp],

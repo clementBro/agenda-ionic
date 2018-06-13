@@ -49,6 +49,10 @@ export class HomePage {
     console.log("ajout" + num);
     this.navCtrl.push(AjoutPage, {num: num});
   }
+
+  support(){
+    this.navCtrl.push('SupportPage');
+  }
   async logOut(): Promise<void> {
     await this.authProvider.logoutUser();
     this.navCtrl.setRoot('LoginPage');

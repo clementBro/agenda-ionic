@@ -92,7 +92,6 @@ export class AjoutPage {
       mediaType: this.camera.MediaType.PICTURE,
       targetHeight: 100,
       targetWidth: 100
-
     }).then(imageData => {
       this.myPhoto = imageData;
       if(this.myPhoto != null){
@@ -104,12 +103,13 @@ export class AjoutPage {
     });
   }
 
+  //delete l'image prise pour l'ajout
   deletePicture(){
     this.image = "";
     this.myPhoto = null;
     this.disabled = true;
   }
-
+  //add l'item sur firebase
    addToFirebase() {
     this.myPhotosRef.child(this.generateUUID()).child('myPhoto.png')
       .putString(this.myPhoto, 'base64', { contentType: 'image/png' })
@@ -137,6 +137,7 @@ export class AjoutPage {
     console.log('ionViewDidLoad AjoutPage');
   }
 
+  //form login
   async logForm() {
     if (!this.addForm.valid) {
       console.log('Form is not valid');
@@ -144,7 +145,6 @@ export class AjoutPage {
     else {
       const loading: Loading = this.loadingCtrl.create();
       loading.present();
-
       this.todo.nom = this.addForm.value.nom;
       this.todo.ville = this.addForm.value.ville;
       this.todo.adresse = this.addForm.value.adresse;
@@ -154,11 +154,9 @@ export class AjoutPage {
       this.todo.lat = this.addForm.value.lat;
       this.todo.long = this.addForm.value.long;
 
-
       try{
         console.log(this.todo);
         await this.addToFirebase();
-
         await loading.dismiss();
         const alert: Alert = this.alertCtrl.create({
           message: 'Le Tabac a bien été ajouté',
@@ -173,9 +171,7 @@ export class AjoutPage {
           ]
         });
         alert.present();
-
       } catch (error) {
-
         await loading.dismiss();
         const alert: Alert = this.alertCtrl.create({
           message: error.message,

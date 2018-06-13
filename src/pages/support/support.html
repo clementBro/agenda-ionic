@@ -1,0 +1,47 @@
+<!--
+  Generated template for the SupportPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>support</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="supportForm" (submit)="sendForm()" novalidate>
+    <ion-item [class.invalid]="!supportForm.controls.problem.valid && supportForm.controls.problem.touched"
+              [class.valid]="supportForm.controls.problem.valid && supportForm.controls.problem.touched">
+      <ion-label>Type de problème</ion-label>
+      <ion-select formControlName="problem">
+        <ion-option value="b">Bug</ion-option>
+        <ion-option value="am">Amélioration</ion-option>
+        <ion-option value="au">Autres</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!supportForm.controls.problem.valid &&
+     supportForm.controls.problem.touched">
+      <p>Entrez un type de probleme</p>
+    </ion-item>
+
+
+    <ion-item [class.invalid]="!supportForm.controls.textprob.valid && supportForm.controls.textprob.touched"
+              [class.valid]="supportForm.controls.textprob.valid && supportForm.controls.textprob.touched">
+        <ion-textarea formControlName="textprob" placeholder="Ecrivez votre message"></ion-textarea>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!supportForm.controls.textprob.valid &&
+     supportForm.controls.textprob.touched">
+      <p>Ce champ ne peut être vide</p>
+    </ion-item>
+
+
+    <button ion-button block type="submit" [disabled]="!supportForm.valid">
+      Envoyer
+    </button>
+  </form>
+</ion-content>
